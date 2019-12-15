@@ -1,8 +1,22 @@
 import React from 'react'
+import { NextPage } from 'next'
 import Head from 'next/head'
 import Nav from '../components/nav'
+import { Photon } from '@prisma/photon'
 
-const Home = () => (
+const photon = new Photon()
+
+export async function unstable_getStaticProps() {
+  return {
+    props: {
+      users: await photon.users.findMany({ where: {name: {contains: "Leo"}}, include: {posts: {first: 1}}}),
+      hello: 'hello world',
+    },
+    revalidate: 5,
+  }
+}
+
+const Home: NextPage<GetProps<typeof unstable_getStaticProps>> = props => (
   <div>
     <Head>
       <title>Home</title>
@@ -13,9 +27,15 @@ const Home = () => (
 
     <div className="hero">
       <h1 className="title">Welcome to Next.js!</h1>
-      <p className="description">
+      {/* {props.users.map(u => u.name)} */}
+      <div className="description">
+      {props.users.map(u => (<div key={u.id}>
+        Name: {u.name}
+        Age: {u.age}
+        First Post: {u.posts[0].title}
+      </div>))}
         To get started, edit <code>pages/index.js</code> and save to reload.
-      </p>
+      </div>
 
       <div className="row">
         <a href="https://nextjs.org/docs" className="card">
@@ -86,3 +106,6 @@ const Home = () => (
 )
 
 export default Home
+
+type ThenArg<T> = T extends PromiseLike<infer U> ? U : T
+type GetProps<T extends (...args: any) => any> = ThenArg<ReturnType<T>> extends { props: infer U } ? U : never
