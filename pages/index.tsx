@@ -1,7 +1,6 @@
 import React from 'react'
 import Head from 'next/head'
 import Nav from '../components/nav'
-import { ThenArg } from '../utils'
 import { Data } from './api'
 import useSWR from 'swr'
 

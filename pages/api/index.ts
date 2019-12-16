@@ -14,6 +14,5 @@ export type Data = ThenArg<ReturnType<typeof getData>>
 
 export default async function(req: NextApiRequest, res: NextApiResponse) {
   const data = await getData()
-  console.log(data)
   res.json(data)
 }
