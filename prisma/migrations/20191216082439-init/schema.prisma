@@ -3,16 +3,18 @@ generator photon {
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "postgresql"
   url = "***"
 }
 
 model User {
-  id    String  @default(cuid()) @id
-  email String  @unique
-  name  String?
-  posts Post[]
-  age Int?
+  id       String  @default(cuid()) @id
+  email    String  @unique
+  name     String?
+  // test
+  lastName String
+  posts    Post[]
+  age      Int?
 }
 
 model Post {

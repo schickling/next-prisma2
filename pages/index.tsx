@@ -4,13 +4,12 @@ import Head from 'next/head'
 import Nav from '../components/nav'
 import { Photon } from '@prisma/photon'
 
-const photon = new Photon()
-
 export async function unstable_getStaticProps() {
+  const photon = new Photon()
+
   return {
     props: {
-      users: await photon.users.findMany({ where: {name: {contains: "Leo"}}, include: {posts: {first: 1}}}),
-      hello: 'hello world',
+      users: await photon.users.findMany({ include: { posts: { first: 1 } } }),
     },
     revalidate: 5,
   }
@@ -27,7 +26,6 @@ const Home: NextPage<GetProps<typeof unstable_getStaticProps>> = props => (
 
     <div className="hero">
       <h1 className="title">Welcome to Next.js!</h1>
-      {/* {props.users.map(u => u.name)} */}
       <div className="description">
       {props.users.map(u => (<div key={u.id}>
         Name: {u.name}
