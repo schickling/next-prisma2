@@ -2,15 +2,13 @@ import React from 'react'
 import { NextPage } from 'next'
 import Head from 'next/head'
 import Nav from '../components/nav'
-import { Photon } from '@prisma/photon'
+import {ThenArg, api} from './utils'
+import { Data } from './api'
 
 export async function unstable_getStaticProps() {
-  const photon = new Photon()
-
+  console.log(JSON.stringify(process.env, null, 2))
   return {
-    props: {
-      users: await photon.users.findMany({ include: { posts: { first: 1 } } }),
-    },
+    props: await api<Data>('/api'),
     revalidate: 5,
   }
 }
@@ -105,5 +103,4 @@ const Home: NextPage<GetProps<typeof unstable_getStaticProps>> = props => (
 
 export default Home
 
-type ThenArg<T> = T extends PromiseLike<infer U> ? U : T
 type GetProps<T extends (...args: any) => any> = ThenArg<ReturnType<T>> extends { props: infer U } ? U : never
