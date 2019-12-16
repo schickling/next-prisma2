@@ -1,6 +1,6 @@
 import { Photon } from '@prisma/photon'
 import { NextApiRequest, NextApiResponse } from 'next'
-import { ThenArg } from '../utils'
+import { ThenArg } from '../../utils'
 
 const photon = new Photon()
 

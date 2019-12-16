@@ -1,8 +1,7 @@
 import React from 'react'
-import { NextPage } from 'next'
 import Head from 'next/head'
 import Nav from '../components/nav'
-import { ThenArg } from './utils'
+import { ThenArg } from '../utils'
 import { Data } from './api'
 import useSWR from 'swr'
 
