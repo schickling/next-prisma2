@@ -8,9 +8,11 @@ import useSWR from 'swr'
 const Home = () => {
   const fetcher = url => fetch(url).then(r => r.json())
   const { data } = useSWR<Data>('/api', fetcher)
+
   if (!data) {
     return <div>Loading...</div>
   }
+
   return (
     <div>
       <Head>
@@ -103,9 +105,3 @@ const Home = () => {
 }
 
 export default Home
-
-type GetProps<T extends (...args: any) => any> = ThenArg<
-  ReturnType<T>
-> extends { props: infer U }
-  ? U
-  : never
