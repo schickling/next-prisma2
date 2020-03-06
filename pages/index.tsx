@@ -4,6 +4,7 @@ import Head from 'next/head'
 import Nav from '../components/nav'
 import { PrismaClient } from '@prisma/client'
 
+type Props = GetProps<typeof unstable_getStaticProps>
 export async function unstable_getStaticProps() {
   const prisma = new PrismaClient()
 
@@ -15,7 +16,7 @@ export async function unstable_getStaticProps() {
   }
 }
 
-const Home: NextPage<GetProps<typeof unstable_getStaticProps>> = props => (
+const Home: NextPage<Props> = props => (
   <div>
     <Head>
       <title>Home</title>
