@@ -879,6 +879,11 @@
   resolved "https://registry.yarnpkg.com/@csstools/convert-colors/-/convert-colors-1.4.0.tgz#ad495dc41b12e75d588c6db8b9834f08fa131eb7"
   integrity sha512-5a6wqoJV/xEdbRNKVo6I4hO3VjyDq//8q2f9I6PBAvMesJHFauXDorcNCsr9RzvsZnaWi5NYCcfyqP1QeFHFbw==
 
+"@prisma/client@^2.0.0-preview023":
+  version "2.0.0-preview023"
+  resolved "https://registry.yarnpkg.com/@prisma/client/-/client-2.0.0-preview023.tgz#d24515b3f62f1d3730fca7d07a43cff36e308f6c"
+  integrity sha512-R3e+CFr5HkDTzMYnNk9iYsjY76C9/3zxdUxmejD3hivJGJ6yEKq5p95gE3skkzWnj5BBa9tE15tNI7/uZZhv5A==
+
 "@prisma/photon@2.0.0-preview018.2":
   version "2.0.0-preview018.2"
   resolved "https://registry.yarnpkg.com/@prisma/photon/-/photon-2.0.0-preview018.2.tgz#d731c12e4f895e84ba9f55eec26767ef9d70bea6"
@@ -4269,10 +4274,10 @@ prepend-http@^1.0.0:
   resolved "https://registry.yarnpkg.com/prepend-http/-/prepend-http-1.0.4.tgz#d4f4562b0ce3696e41ac52d0e002e57a635dc6dc"
   integrity sha1-1PRWKwzjaW5BrFLQ4ALlemNdxtw=
 
-prisma2@2.0.0-preview018.2:
-  version "2.0.0-preview018.2"
-  resolved "https://registry.yarnpkg.com/prisma2/-/prisma2-2.0.0-preview018.2.tgz#404a56d3d4be95f4e19819e9bea43efaebf2b34e"
-  integrity sha512-/0ulQKc4dCk37AGvVq8KlLRPqwv4AnuCTf/vjDaMBh1yfeaIP4ZHtAsujz53jsv1VIJs4fClKq/hTyyGWAPZLQ==
+prisma2@^2.0.0-preview023:
+  version "2.0.0-preview023"
+  resolved "https://registry.yarnpkg.com/prisma2/-/prisma2-2.0.0-preview023.tgz#9c692b6fe0f3917b9ad295db6fa15018e5465ca9"
+  integrity sha512-rwK1fzVcC9S9eJJBn1qBwO3ccuN0FRii3UkQcwIGg98jyo3nx0QuLSmH0c6xtxDWhzIN1sRMepZf959AaVNxkA==
 
 private@^0.1.6:
   version "0.1.8"
